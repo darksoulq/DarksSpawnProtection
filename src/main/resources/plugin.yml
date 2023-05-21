@@ -1,0 +1,4 @@
+name: DarksSpawnProtection
+version: '${project.version}'
+main: me.darksoul.darksspawnprotection.DarksSpawnProtection
+api-version: 1.19
