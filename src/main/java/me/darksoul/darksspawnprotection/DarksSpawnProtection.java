@@ -38,7 +38,7 @@ public class DarksSpawnProtection extends JavaPlugin implements Listener {
 
         if (isUnderSpawnProtection(playerId)) {
             // Player is under spawn protection
-            event.setCancelled(true);
+            event.setCancelled(false);
         }
     }
 
@@ -84,7 +84,7 @@ public class DarksSpawnProtection extends JavaPlugin implements Listener {
         Long joinTimestamp = protectedPlayers.get(playerId);
         if (joinTimestamp != null) {
             long currentTime = System.currentTimeMillis();
-            return (currentTime - joinTimestamp) <= (5 * 60 * 1000); // 5 minutes in milliseconds
+            return (currentTime - joinTimestamp) <= (300000); // 5 minutes in milliseconds
         }
         return false;
     }
@@ -97,6 +97,6 @@ public class DarksSpawnProtection extends JavaPlugin implements Listener {
             if (player != null) {
                 player.sendMessage("Your spawn protection has expired.");
             }
-        }, 5 * 60 * 20); // 5 minutes (300 seconds) converted to ticks (1 tick = 1/20th of a second)
+        }, 600); // 5 minutes (300 seconds) converted to ticks (1 tick = 1/20th of a second)
     }
 }
